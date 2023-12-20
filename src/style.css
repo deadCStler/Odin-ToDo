@@ -33,19 +33,29 @@
 
 .overview,
 .categories > ul {
+  list-style: none;
   font-size: 28px;
   margin: 5px 20px;
 }
 
 .categories > ul > li {
+  display: flex;
   color: #fbfbfb;
   font-size: 22px;
   margin: 5px 5px 5px 20px;
 }
 
+.categories > ul > li>div:hover {
+  cursor: pointer;
+}
+
 .new_category {
   padding-left: 20px;
   font-size: 20px;
+}
+
+.new_category:hover {
+  cursor: pointer;
 }
 
 dialog {
@@ -63,7 +73,7 @@ dialog > form {
 dialog > form > div {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 button {
@@ -104,18 +114,54 @@ textarea {
   color: #232323;
 }
 
+.new_note:hover {
+  cursor: pointer;
+}
+
 .options > div {
-  padding: 5px 10px;
+  padding: 5px 20px;
+}
+
+.options > div:hover {
+  cursor: pointer;
 }
 
 .notes_body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 
-.note{
-    background-color: #fbfbfb;
-    min-height: 200px;
-    min-width: 200px
+.note {
+  background-color: #fbfbfb;
+  min-height: 200px;
+  min-width: 200px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 30px 1fr 20px;
+  border-radius: 10px;
+}
+
+.noteDisplayDialog {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.noteDisplayDialog > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.noteDisplayDialog > div > p {
+  font-weight: bold;
+}
+
+#active{
+  background-color:#232323;
+  color: #fbfbfb;
+  border-radius: 5px;
 }

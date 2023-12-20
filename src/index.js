@@ -1,39 +1,30 @@
-import { categoryList, newCategory } from "./categoryDOM";
+import { checkCategory } from "./categoryDOM";
 import { header } from "./bodyHeader";
 import { navigation_menu } from "./navigation";
 import "./style.css";
-import { displayAll, newNote } from "./noteDOM";
+import { populateCategoryStorage, populateObjStorage } from "./localStorage";
 
-let body = document.createElement("div");
-body.classList.add("main_body");
+//create a function for style and display that and remove from other
 
-let notesBody = document.createElement("div");
-notesBody.classList.add("notes_body");
+const code = (function () {
+  const content = document.querySelector("#content");
 
-body.appendChild(header());
-body.appendChild(notesBody);
+  let body = document.createElement("div");
+  body.classList.add("main_body");
 
-const content = document.querySelector("#content");
-content.appendChild(navigation_menu());
-content.appendChild(body);
+  let notesBody = document.createElement("div");
+  notesBody.classList.add("notes_body");
 
-const add_new_category = document.querySelector(".new_category");
+  body.appendChild(header());
+  body.appendChild(notesBody);
 
-add_new_category.addEventListener("click", () => {
-  newCategory();
-});
+  content.appendChild(navigation_menu());
+  content.appendChild(body);
 
-const add_new_note = document.querySelector(".new_note");
+  checkCategory();
 
-add_new_note.addEventListener("click", () => {
-  if (categoryList.length == 0) {
-    alert("Create a category first");
-  } else {
-    newNote(categoryList);
-  }
-});
+  const opt_all = document.querySelector(".opt_all");
 
-const opt_all = document.querySelector(".opt_all");
-opt_all.addEventListener("click", () => {
-  displayAll();
-});
+  populateObjStorage();
+  populateCategoryStorage();
+})();

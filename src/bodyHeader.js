@@ -1,22 +1,29 @@
-export const header = function(){
-    let div = document.createElement('div');
-    div.classList.add('header');
+import { displayAll } from "./noteDOM";
 
-    let opt = document.createElement('div');
-    opt.classList.add('options');
+export const header = function () {
+  let div = document.createElement("div");
+  div.classList.add("header");
 
-    let all = document.createElement('div');
-    all.classList.add('opt_all');
-    all.innerHTML='All';
+  let opt = document.createElement("div");
+  opt.classList.add("options");
 
-    opt.appendChild(all);
+  let all = document.createElement("div");
+  all.classList.add("opt_all");
+  all.setAttribute('id','active');
+  all.innerHTML = "All";
 
-    let newNote = document.createElement('div');
-    newNote.classList.add('new_note');
-    newNote.innerHTML='+ Add a New Note';
+  opt.appendChild(all);
 
-    div.appendChild(opt);
-    div.appendChild(newNote);
+  let newNote = document.createElement("div");
+  newNote.classList.add("new_note");
+  newNote.innerHTML = "+ Add a New Note";
 
-    return div;
-}
+  div.appendChild(opt);
+  div.appendChild(newNote);
+
+  all.addEventListener("click", () => {
+    displayAll();
+  });
+
+  return div;
+};

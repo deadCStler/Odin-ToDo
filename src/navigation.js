@@ -1,3 +1,5 @@
+import { newCategory } from "./categoryDOM";
+
 export const navigation_menu=function(){
     let div = document.createElement('div');
     div.classList.add('navigation_menu');
@@ -38,6 +40,10 @@ export const navigation_menu=function(){
     div.appendChild(logo);
     div.appendChild(options);
     div.appendChild(links);
+  
+    add_new_category.addEventListener("click", () => {
+      newCategory();
+    });
 
     return div;
 }
